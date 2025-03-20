@@ -24,7 +24,7 @@ const Cart = () => {
                     <div className='flex flex-col md:flex-row justify-between space-x-10 mt-8'>
                         <div className='md:w-2/3'>
                             <div className='flex justify-between border-b items-center mb-4 text-xs font-bold'>
-                                <p className='flex-1 text-base pl-6'>產品</p>
+                                <p className='flex-1 text-base pl-6 md:justify-center'>產品</p>
                                 <div className='flex space-x-18'>
                                     <p className='text-base'>價格</p>
                                     <p className='text-base'>數量</p>
@@ -36,14 +36,14 @@ const Cart = () => {
                                 <div key={product.id}
                                     className='flex items-center justify-between p-3 border-b'
                                 >
-                                    <div className='md:flex flex-1 items-center space-x-4'>
+                                    <div className='md:flex flex-1 items-center space-x-4 md:space-x-1'>
                                         <img
                                             src={product.img}
                                             alt={product.name}
                                             className='w-16 h-16 object-contain rounded'
                                         />
                                         <div className='flex-1 ml-4'>
-                                            <h3 className='text-lg font-semibold'>{product.name}</h3>
+                                            <h3 className='text-lg md:text-base font-bold'>{product.name}</h3>
                                         </div>
                                     </div>
                                     <div className='flex space-x-12 items-center'>

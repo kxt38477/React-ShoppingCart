@@ -65,7 +65,6 @@ const cartSlice = createSlice({
             if (compare.quantity == 0) {
                 state.products = state.products.filter(item => item.id !== decreaseItem.id)
             }
-            
         }
 
     }
