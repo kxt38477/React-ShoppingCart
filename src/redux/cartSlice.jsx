@@ -32,7 +32,6 @@ const cartSlice = createSlice({
         removeFromCart(state, action) {
             const removeItem = action.payload
             const compare = state.products.find(item => item.id === removeItem.id)
-            console.log(removeItem.id);
 
             if (compare) {
                 state.totalPrice -= compare.totalPrice //購物車總金額要扣掉該品項總金額
@@ -50,23 +49,34 @@ const cartSlice = createSlice({
                 compare.totalPrice += increaseItem.price
                 state.totalQuantity++
                 state.totalPrice += increaseItem.price
+            } 
+            else {
+                state.products.push({
+                    id: increaseItem.id,
+                    name: increaseItem.name,
+                    price: increaseItem.price,
+                    quantity: increaseItem.quantity,
+                    totalPrice: increaseItem.price * increaseItem.quantity,
+                    img: increaseItem.image
+                })
+                state.totalPrice += (increaseItem.price * increaseItem.quantity)
+                state.totalQuantity+= increaseItem.quantity
             }
         },
         decreaseCount(state, aciton) {
             const decreaseItem = aciton.payload
             const compare = state.products.find(item => item.id === decreaseItem.id)
- 
+
             if (compare) {
                 compare.quantity--
                 compare.totalPrice -= decreaseItem.price
                 state.totalQuantity--
                 state.totalPrice -= decreaseItem.price
-            } 
+            }
             if (compare.quantity == 0) {
                 state.products = state.products.filter(item => item.id !== decreaseItem.id)
             }
         }
-
     }
 
 })
