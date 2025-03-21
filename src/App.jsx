@@ -15,7 +15,7 @@ function App() {
   const [order, setOrder] = useState(null)
 
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -27,7 +27,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetail />}></Route>
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </>
 
   )
 }
